@@ -15,7 +15,7 @@ const DashboardCards: FC = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api"); // Ensure this URL matches your backend
+        const response = await fetch("http://localhost:7575/api"); // Ensure this URL matches your backend
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

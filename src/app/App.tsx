@@ -4,29 +4,37 @@ import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import type { Navigation, Router } from "@toolpad/core";
-import Dashboard from "../pages/dashobard/Dashboard";
-import Orders from "../pages/orders/Orders";
+import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
+import Products from "../pages/products/Products";
+import Poem from "../pages/poem/Poem";
+import Biography from "../pages/biographies/Biography";
 
 const NAVIGATION: Navigation = [
   {
     kind: "header",
     title: "Main items",
   },
+
   {
-    segment: "dashboard",
-    title: "Dashboard",
-    icon: <DashboardIcon />,
+    segment: "products",
+    title: "Products",
+    icon: <ShoppingCartIcon />,
   },
   {
-    segment: "orders",
-    title: "Orders",
-    icon: <ShoppingCartIcon />,
+    segment: "poem",
+    title: "Poems",
+    icon: <HistoryEduIcon />,
+  },
+
+  {
+    segment: "bio",
+    title: "Biography",
+    icon: <HistoryEduIcon />,
   },
 ];
 
@@ -109,10 +117,12 @@ export default function App(props: DemoProps) {
       window={demoWindow}
     >
       <DashboardLayout slots={{ toolbarActions: Search }}>
-        {pathname === "/dashboard" ? (
-          <Dashboard />
-        ) : pathname === "/orders" ? (
-          <Orders />
+        {pathname === "/poem" ? (
+          <Poem />
+        ) : pathname === "/bio" ? (
+          <Biography />
+        ) : pathname === "/products" ? (
+          <Products />
         ) : (
           <Typography>Other Content</Typography>
         )}
